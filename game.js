@@ -20,6 +20,7 @@ function playRound (playerSelection,computerSelection){
 
     console.log("Player choice: " + playerSelection);
     console.log("Computer choice: " + computerSelection);
+    console.log("Player: " + playerScore + " - " +"Computer: " + computerScore);
 
     //Player selection is rock
     if (playerSelection.toLowerCase() === "rock" ){
@@ -76,16 +77,32 @@ function game(){
        return playerChoice;}
 
 //function that plays 5 games
-    for (let i = 0; i < 5; i++){
-        console.log("ROUND: " + (i+1))
+    for (let round = 1; round < 6; round++){
+        console.log("ROUND: " + (round));
         const playerSelection = playerPlay();
         const computerSelection = computerPlay();
-        const rounds = playRound (playerSelection, computerSelection)
+        const rounds = playRound (playerSelection, computerSelection);
         console.log(rounds);
-        console.log("--------------------")
-
+        console.log("--------------------");
+        
      };
+     while (round = 5){
+        return (winner())
+     }
 
+
+function winner(){
+    if (playerScore > computerScore){
+        return ("Player Won " + playerScore + " - "  + computerScore);
+    }
+    else if (playerScore < computerScore){
+        return ("Computer Won " + playerScore + " - "  + computerScore);
+    }
+    else {
+        return ("Tie "+ playerScore + " - "  + computerScore)
+    }
+    
+}
+}
 
    //console.log(game(computerPlay))
-} 
