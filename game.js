@@ -18,6 +18,9 @@ function computerPlay() {
 //function that plays one round
 function playRound (playerSelection,computerSelection){
 
+    console.log("Player choice: " + playerSelection);
+    console.log("Computer choice: " + computerSelection);
+
     //Player selection is rock
     if (playerSelection.toLowerCase() === "rock" ){
        if (computerSelection === "rock"){
@@ -56,26 +59,33 @@ function game(){
 
 //function that lets the player choose rock, paper or scissors
      function playerPlay(){
-       let playerChoice = prompt("Do you choose 'Rock' (0), 'Paper' (1), or 'Scissors' (2)?");
-       console.log("'Rock' (0), 'Paper' (1), or 'Scissors' (2)?");
-        if (playerChoice.toLocaleLowerCase() === "rock" || parseInt(playerChoice)=== 0){
-            playerChoice="Rock";}
-        else if (playerChoice.toLocaleLowerCase()=== "paper" || parseInt(playerChoice)=== 1){
-            playerChoice= "Paper"}
-        else if (playerChoice.toLocaleLowerCase() === "scissors" || parseInt(playerChoice) === 2) {
-            playerChoice= "Scissors"}
-        else {
-            console.log("You made a mistake! Correct it RIGHT NOW!!!")
-        }
-        return playerChoice;}
+       let playerChoice = prompt("Rock, paper, scissors?");
+       while (playerChoice == null){
+        prompt("Rock, paper, scissors?");
+       }
+         if (playerChoice.toLocaleLowerCase() === "rock" || parseInt(playerChoice)=== 0){
+             playerChoice="Rock";}
+         else if (playerChoice.toLocaleLowerCase()=== "paper" || parseInt(playerChoice)=== 1){
+             playerChoice= "Paper"}
+         else if (playerChoice.toLocaleLowerCase() === "scissors" || parseInt(playerChoice) === 2) {
+             playerChoice= "Scissors"}
+         else {
+             console.log("You made a mistake! Correct it RIGHT NOW!!!")
+         }
+       
+       return playerChoice;}
 
 //function that plays 5 games
-       for ( let i = 0; i < 5; i++){
-           const playerSelection = playerPlay();
-           const computerSelection = computerPlay();
-           const currentRound = playRound (playerSelection, computerSelection)
-           console.log(currentRound)
-       }
-   } 
-   //console.log(game(computerPlay))
+    for (let i = 0; i < 5; i++){
+        console.log("ROUND: " + (i+1))
+        const playerSelection = playerPlay();
+        const computerSelection = computerPlay();
+        const rounds = playRound (playerSelection, computerSelection)
+        console.log(rounds);
+        console.log("--------------------")
 
+     };
+
+
+   //console.log(game(computerPlay))
+} 
