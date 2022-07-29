@@ -29,12 +29,15 @@ function playRound(playerPlay){
     
     let computerSelection = computerPlay();
 
+    document.querySelector('.score1').innerHTML = playerScore;
+    document.querySelector('.score2').innerHTML = computerScore;
+    
     console.log("Player selection: " + playerPlay);
     console.log("Computer selection: " + computerSelection);
     console.log("Player: " + playerScore + " - " +"Computer: " + computerScore);
 
     //Player selection is rock
-    if (playerPlay === "rock" ){
+    if (playerPlay.toLowerCase() === "rock" ){
        if (computerSelection === "rock"){
         return "Tie! Try Again!";
     } else if (computerSelection === "paper"){
@@ -45,7 +48,7 @@ function playRound(playerPlay){
         return "You Win! Rock Beats Scissors!";}
     }
 //Player selection is paper
-    if (playerPlay === "paper" ){
+    if (playerPlay.toLowerCase() === "paper" ){
         if (computerSelection === "rock"){
         playerScore++;
          return "You Win! Paper Beats Rock!";
@@ -56,7 +59,7 @@ function playRound(playerPlay){
         return "You Lose Scissors Beats Paper!";}
      }
 //Player Selection is scissors  
-     if (playerPlay === "scissors" ){
+     if (playerPlay.toLowerCase() === "scissors" ){
         if (computerSelection === "rock"){
         computerScore++;
         return "You Lose! Rock Beats Scissors!";
