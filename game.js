@@ -3,17 +3,10 @@ let computerScore = 0;
 const selections = document.querySelectorAll('[data-selection]');
 
 //function that returns Rock, paper, scissors randomly
-function computerPlay() {
-    randomNum = Math.floor(Math.random() * 3);
-    if (randomNum == "0") {
-        return "rock";
-    }
-    else if (randomNum == "1") {
-        return "paper";
-    }
-    else {
-        return "scissors";
-    }
+const computerPlay = () => {
+    const choices= ['rock','paper','scissors',]
+    randomNum = Math.floor(Math.random() * choices.length);
+    return choices[randomNum]
 }  
 
 //function that lets the player choose rock, paper or scissors
@@ -29,8 +22,8 @@ const playRound = (playerPlay) => {
     
     let computerSelection = computerPlay();
 
-    document.querySelector('.score1').innerHTML = playerScore;
-    document.querySelector('.score2').innerHTML = computerScore;
+    document.querySelector('.score1').innerText = playerScore;
+    document.querySelector('.score2').innerText = computerScore;
     
     console.log("Player selection: " + playerPlay);
     console.log("Computer selection: " + computerSelection);
