@@ -1,6 +1,9 @@
 let playerScore = 0;
 let computerScore = 0;
 const selections = document.querySelectorAll('[data-selection]');
+const result = document.querySelector('.result')
+const playerScoreSpan = document.querySelector('.player-score')
+const computerScoreSpan = document.querySelector('.computer-score')
 
 //function that returns Rock, paper, scissors randomly
 const computerPlay = () => {
@@ -8,87 +11,71 @@ const computerPlay = () => {
     randomNum = Math.floor(Math.random() * choices.length);
     return choices[randomNum]
 }  
+ 
+//function that plays one round
+const playRound = (playerPlay) => {
+    
+    const p = document.createElement('p')
+    let computerSelection = computerPlay();
+
+    //TIE
+    if (playerPlay === computerSelection){
+        p.innerText =  ("Tie");
+    }
+    //Player selection is rock
+    else if (playerPlay === "rock" && computerSelection ==='paper'){
+        computerScore++;
+        p.innerText = ("Paper beats Rock!")
+    } else if (playerPlay === "rock" && computerSelection ==='scissors'){
+        playerScore++
+        p.innerText =  ("Rock beats scissors!")
+    }
+    //Player selection is paper
+     else if (playerPlay === "paper" && computerSelection ==='rock'){
+        playerScore++
+        p.innerText =  ('Paper beats Rock!')
+    } else if (playerPlay === "paper" && computerSelection ==='scissors'){
+        computerScore++
+        p.innerText =  ('Scissors beats paper!')
+
+    }
+    
+    //Player selection is scissors
+    else if (playerPlay === 'scissors' && computerSelection ==='paper'){
+        playerScore++
+        p.innerText =  ("Scissors beats paper!")
+    } else if (playerPlay === 'scissors' && computerSelection ==='paper'){
+        computerScore++
+        p.innerText = ("Rock beats scissors!")
+    }
+result.appendChild(p)
+}
+
+const updateScore = (playerScore, computerScore) => {
+   computerScoreSpan.innerText = `Player score: ${computerScore}`
+   playerScoreSpan.innerText = `Computer score: ${playerScore}`
+
+}
 
 //function that lets the player choose rock, paper or scissors
 selections.forEach(selection => {
     selection.addEventListener('click', e => {
         const playerPlay = selection.dataset.selection; 
         playRound(playerPlay);
+        updateScore(playerScore, computerScore)
+        winnerIs()
     })
 })
- 
-//function that plays one round
-const playRound = (playerPlay) => {
-    
-    let computerSelection = computerPlay();
 
-    document.querySelector('.score1').innerText = playerScore;
-    document.querySelector('.score2').innerText = computerScore;
-    
-    console.log("Player selection: " + playerPlay);
-    console.log("Computer selection: " + computerSelection);
-    console.log("Player: " + playerScore + " - " +"Computer: " + computerScore);
 
-    //TIE
-    if (playerPlay === computerSelection){
-        return ("Tie");
+const winnerIs = () => {
+    const h3 = document.createElement('h3')
+    if (playerScore === 5){
+        h3.innerText = `Player Won ${playerScore} - ${computerScore}!`
+        result.append(h3)
     }
-    //Player selection is rock
-    else if (playerPlay === "rock" && computerSelection ==='paper'){
-        computerScore++;
-        return ("Paper beats Rock!")
-    } else if (playerPlay === "rock" && computerSelection ==='scissors'){
-        playerScore++
-        return ("Rock beats scissors!")
-    }
-    //Player selection is paper
-     else if (playerPlay === "paper" && computerSelection ==='rock'){
-        playerScore++
-        return ('Paper beats Rock!')
-    } else if (playerPlay === "paper" && computerSelection ==='scissors'){
-        computerScore++
-        return ('Scissors beats paper!')
-    }
-    
-    //Player selection is scissors
-    else if (plalerSelection === 'scissors' && computerSelection ==='paper'){
-        playerScore++
-        return ("Scissors beats paper!")
-    } else if (plalerSelection === 'scissors' && computerSelection ==='paper'){
-        compueterScore++
-        return ("Rock beats scissors!")
+    if (computerScore === 5){
+        h3.innerText = `Computer Won ${playerScore} - ${computerScore}!`
+        result.append(h3)
     }
 }
-function game(){ 
-
-// //function that plays 5 games
-// for (let round = 1; round < 6; round++){
-//     console.log("ROUND: " + (round));
-//     const playerPlay = playerPlay();
-//     const computerSelection = computerPlay();
-//     const rounds = playRound (playerPlay, computerSelection);
-//     console.log(rounds);
-//     console.log("--------------------");
-    
-//  };
-//  while (round = 5){
-//      return (winner())
-//  }
-
-
-
-function winner(){
-    if (playerScore > computerScore){
-        return ("Player Won " + playerScore + " - "  + computerScore);
-    }
-    else if (playerScore < computerScore){
-        return ("Computer Won " + playerScore + " - "  + computerScore);
-    }
-    else {
-        return ("Tie "+ playerScore + " - "  + computerScore)
-    }
-    
-}
-}
-
-   //console.log(game(computerPlay))
