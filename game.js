@@ -25,7 +25,7 @@ selections.forEach(selection => {
 })
  
 //function that plays one round
-function playRound(playerPlay){
+const playRound = (playerPlay) => {
     
     let computerSelection = computerPlay();
 
@@ -36,40 +36,36 @@ function playRound(playerPlay){
     console.log("Computer selection: " + computerSelection);
     console.log("Player: " + playerScore + " - " +"Computer: " + computerScore);
 
+    //TIE
+    if (playerPlay === computerSelection){
+        return ("Tie");
+    }
     //Player selection is rock
-    if (playerPlay.toLowerCase() === "rock" ){
-       if (computerSelection === "rock"){
-        return "Tie! Try Again!";
-    } else if (computerSelection === "paper"){
+    else if (playerPlay === "rock" && computerSelection ==='paper'){
         computerScore++;
-        return "You Lose! Paper Beats Rock!";
-    } else {
-        playerScore++;
-        return "You Win! Rock Beats Scissors!";}
+        return ("Paper beats Rock!")
+    } else if (playerPlay === "rock" && computerSelection ==='scissors'){
+        playerScore++
+        return ("Rock beats scissors!")
     }
-//Player selection is paper
-    if (playerPlay.toLowerCase() === "paper" ){
-        if (computerSelection === "rock"){
-        playerScore++;
-         return "You Win! Paper Beats Rock!";
-     } else if (computerSelection === "paper"){
-         return "Tie! Try Again!";
-     } else {
-         computerScore++;
-        return "You Lose Scissors Beats Paper!";}
-     }
-//Player Selection is scissors  
-     if (playerPlay.toLowerCase() === "scissors" ){
-        if (computerSelection === "rock"){
-        computerScore++;
-        return "You Lose! Rock Beats Scissors!";
-        } else if (computerSelection === "paper"){
-         playerScore++;
-         return "You Win! Scissors Beats Paper!";
-        } else {
-         return "Tie! Try Again!";}
-        }
+    //Player selection is paper
+     else if (playerPlay === "paper" && computerSelection ==='rock'){
+        playerScore++
+        return ('Paper beats Rock!')
+    } else if (playerPlay === "paper" && computerSelection ==='scissors'){
+        computerScore++
+        return ('Scissors beats paper!')
     }
+    
+    //Player selection is scissors
+    else if (plalerSelection === 'scissors' && computerSelection ==='paper'){
+        playerScore++
+        return ("Scissors beats paper!")
+    } else if (plalerSelection === 'scissors' && computerSelection ==='paper'){
+        compueterScore++
+        return ("Rock beats scissors!")
+    }
+}
 function game(){ 
 
 // //function that plays 5 games
