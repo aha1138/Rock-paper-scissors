@@ -15,7 +15,7 @@ const computerPlay = () => {
 //function that plays one round
 const playRound = (playerPlay) => {
     
-    const p = document.createElement('p')
+    const p = document.querySelector('p')
     let computerSelection = computerPlay();
 
     //TIE
@@ -52,8 +52,8 @@ result.appendChild(p)
 }
 
 const updateScore = (playerScore, computerScore) => {
-   computerScoreSpan.innerText = `Player score: ${computerScore}`
-   playerScoreSpan.innerText = `Computer score: ${playerScore}`
+   computerScoreSpan.innerText = `Player score: ${playerScore}`
+   playerScoreSpan.innerText = `Computer score: ${computerScore}`
 
 }
 
@@ -69,7 +69,7 @@ selections.forEach(selection => {
 
 
 const winnerIs = () => {
-    const h3 = document.createElement('h3')
+    const h3 = document.querySelector('h3')
     if (playerScore === 5){
         h3.innerText = `Player Won ${playerScore} - ${computerScore}!`
         result.append(h3)
