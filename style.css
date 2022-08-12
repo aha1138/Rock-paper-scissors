@@ -1,3 +1,6 @@
+*{
+  color: white;
+}
 body {
     background: 
     linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
@@ -16,5 +19,31 @@ body {
     line-height: 72px; 
     margin: 0 0 24px; 
     text-align: center; 
-    text-transform: uppercase;}
+    text-transform: uppercase;
+  }
 
+.selections {
+  background-color: red;
+  display: flex;
+  padding-left: 100px;
+  padding-right: 100px;
+  justify-content: space-between;
+}
+.selection{
+  background-color: blue;
+}
+p{
+  display: flex;
+  justify-content: center;
+}
+h3{
+  display: flex;
+  justify-content: center;
+}
+.Scores {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 70px;
+  font-size: large;
+}
