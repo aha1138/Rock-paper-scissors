@@ -1,36 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
 *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Verdana', sans-serif;
   color: white;
 }
-body {
-    background: 
-    linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
-    linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
-    linear-gradient(315deg, black 25%, transparent 25%),
-    linear-gradient(45deg, black 25%, transparent 25%);	
-    background-size: 2em 2em;
-    background-color: #232323;
-    /*codepen*/
-  }
 
-  h1 { color: #ffffff; 
-    font-family: sans-serif; 
+body{
+  background: linear-gradient(to bottom, #7fbeef, #275660);
+  justify-content: center;
+  align-items: center;
+}
+  h1 { 
+
+    font-family:'Rubik';
     font-size: 62px; 
     font-weight: 800; 
-    line-height: 72px; 
-    margin: 0 0 24px; 
+    line-height: 100px; 
     text-align: center; 
     text-transform: uppercase;
   }
-
 .selections {
-  background-color: red;
+  padding: 70px;
   display: flex;
   padding-left: 100px;
   padding-right: 100px;
   justify-content: space-between;
 }
 .selection{
-  background-color: blue;
+  padding: 50px;
+  font-size: 50px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 25px;
+  background-color: transparent;
+  transition: transform .4s;
+}
+.selection:hover{
+  transform: scale(1.2);
 }
 p{
   display: flex;
