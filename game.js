@@ -11,6 +11,11 @@ const computerPlay = () => {
     randomNum = Math.floor(Math.random() * choices.length);
     return choices[randomNum]
 }  
+
+function restart() {
+    playerScore = 0;
+    computerScore = 0;
+}
  
 //function that plays one round
 const playRound = (playerPlay) => {
@@ -73,9 +78,11 @@ const winnerIs = () => {
     if (playerScore === 5){
         h3.innerText = `Player Won ${playerScore} - ${computerScore}!`
         result.append(h3)
+        restart();
     }
     if (computerScore === 5){
         h3.innerText = `Computer Won ${playerScore} - ${computerScore}!`
         result.append(h3)
+        restart();
     }
 }

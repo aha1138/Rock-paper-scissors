@@ -1,10 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
 *{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Verdana', sans-serif;
   color: white;
 }
 
@@ -44,6 +40,7 @@ body{
 p{
   display: flex;
   justify-content: center;
+  padding-bottom: 50px;
 }
 h3{
   display: flex;
